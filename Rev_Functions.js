@@ -1,6 +1,6 @@
 function isPcupLight(light) {
-  let rpm = $prop('DatacorePlugin.GameData.NewData.Rpms');
-  let gear = $prop('??gear??');
+  let rpm = $prop('DataCorePlugin.GameData.Rpms');
+  let gear = $prop('DataCorePlugin.GameData.Gear');
   let gearIndex, onRpm, offRpm;
 
   // array containg the rpm that the light should be turned on per gear.
