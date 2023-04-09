@@ -46,7 +46,7 @@ function isPcupLight(light) {
     return false;
   } else {
     onRpm = perLightRpms[light - 1][gearIndex];
-    offRpm = perLightRpms.at(-1)[gearIndex];
+    offRpm = perLightRpms[perLightRpms.length - 1][gearIndex];
   }
 
   if (light == perLightRpms.length) {
