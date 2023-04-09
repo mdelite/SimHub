@@ -10,7 +10,7 @@ const rpmsPorscheCup992 = [
   [7800, 7900, 8100, 8120, 8070, 99999]
 ];
 
-function isPcupLight(light, rpmMatrix) {
+function isRpmLightLit(light, rpmMatrix) {
   let rpm = $prop('DataCorePlugin.GameData.Rpms');
   let gear = $prop('DataCorePlugin.GameData.Gear');
 
@@ -19,14 +19,15 @@ function isPcupLight(light, rpmMatrix) {
   }
 
   let gearIndex = parseInt(gear) - 1;
-
   if (isNaN(gearIndex) || gearIndex < 0) {
     gearIndex = 0;
-  } else if (gearIndex > rpmMatrix[light].length) {
+  }
+
+  if (gearIndex > rpmMatrix[light - 1].length) {
     return false;
   }
 
-  let onRpm = rpmMatrix[light][gearIndex];
+  let onRpm = rpmMatrix[light - 1][gearIndex];
   let offRpm = rpmMatrix[rpmMatrix.length - 1][gearIndex];
 
   if (light == rpmMatrix.length) {
