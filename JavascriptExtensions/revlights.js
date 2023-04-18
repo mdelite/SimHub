@@ -10,6 +10,18 @@ const rpmsPorscheCup992 = [
   [7800, 7900, 8100, 8120, 8070, 99999]
 ];
 
+const rpmsRenaultClioRSV = [
+  [3000],
+  [3320],
+  [3700],
+  [4000],
+  [4500],
+  [5000],
+  [5400],
+  [5800],
+  [6400]
+];
+
 function isRpmLightLit(light, rpmMatrix) {
   let rpm = $prop('DataCorePlugin.GameData.Rpms');
   let gear = $prop('DataCorePlugin.GameData.Gear');
@@ -23,8 +35,8 @@ function isRpmLightLit(light, rpmMatrix) {
     gearIndex = 0;
   }
 
-  if (gearIndex > rpmMatrix[light - 1].length) {
-    return false;
+  if (gearIndex >= rpmMatrix[light - 1].length) {
+    gearIndex = rpmMatrix[light - 1].length - 1;
   }
 
   let onRpm = rpmMatrix[light - 1][gearIndex];
